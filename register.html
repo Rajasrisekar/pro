@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - ADHYA</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url('./background.jpg') no-repeat center center/cover;
+      font-family: sans-serif;
+    }
+
+    .register-container {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+      width: 380px;
+      color: #fff;
+    }
+
+    .register-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .register-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #28a745;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .register-btn:hover {
+      background-color: #218838;
+    }
+
+    .register-footer {
+      text-align: center;
+      margin-top: 15px;
+    }
+
+    .register-footer a {
+      color: #28a745;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+
+  <div class="register-container">
+    <video autoplay muted loop class="bg-video">
+  <source src="./13737126-uhd_2160_3840_24fps.mp4" type="video/mp4">
+</video>
+    <h2>Create an Account</h2>
+    <form id="registerForm">
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" required />
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required />
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required />
+      </div>
+      <div class="form-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" required />
+      </div>
+      <button type="submit" class="register-btn">Register</button>
+    </form>
+    <div class="register-footer">
+      <p>Already have an account? <a href="login.html">Login</a></p>
+    </div>
+  </div>
+
+  <script>
+    document.getElementById('registerForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const password = document.getElementById('password').value;
+      const confirm = document.getElementById('confirmPassword').value;
+      if (password !== confirm) {
+        alert('Passwords do not match!');
+      } else {
+        alert('Registration successful!');
+        // Redirect or handle data
+      }
+    });
+  </script>
+</body>
+</html>

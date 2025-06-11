@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Order Booking - ADHYA</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    body {
+      font-family: sans-serif;
+      background: url('./background.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    .order-container {
+      background-color: rgba(0, 0, 0, 0.75);
+      padding: 30px;
+      border-radius: 10px;
+      color: #fff;
+      width: 420px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    }
+
+    .order-container h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+    }
+
+    .order-btn {
+      width: 100%;
+      padding: 12px;
+      background-color: #ff6347;
+      border: none;
+      border-radius: 5px;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .order-btn:hover {
+      background-color: #e5533d;
+    }
+  </style>
+</head>
+<body>
+  <div class="order-container">
+<video autoplay muted loop class="bg-video" >
+  <source src="./6667248-uhd_3840_2160_25fps.mp4" type="video/mp4">
+</video>
+    <h2>Place Your Order</h2>
+    <form id="orderForm">
+      <div class="form-group">
+        <label for="name">Customer Name</label>
+        <input type="text" id="name" required />
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone Number</label>
+        <input type="tel" id="phone" required />
+      </div>
+      <div class="form-group">
+        <label for="menuItem">Select Item</label>
+        <select id="menuItem" required>
+          <option value="">-- Choose --</option>
+          <option value="burger">Classic Burger</option>
+          <option value="noodles">Asian Noodles</option>
+          <option value="salmon">Salmon</option>
+          <option value="dessert">Cupcakes</option>
+          <option value="beverage">Milkshake</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="qty">Quantity</label>
+        <input type="number" id="qty" min="1" value="1" required />
+      </div>
+      <div class="form-group">
+        <label for="address">Delivery Address</label>
+        <textarea id="address" rows="3" required></textarea>
+      </div>
+      <button type="submit" class="order-btn">Book Order</button>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('orderForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const item = document.getElementById('menuItem').value;
+      const qty = document.getElementById('qty').value;
+      const address = document.getElementById('address').value;
+
+      if (!name || !phone || !item || !qty || !address) {
+        alert("Please fill out all fields.");
+        return;
+      }
+
+      alert(`Order placed!\n\nName: ${name}\nItem: ${item}\nQty: ${qty}`);
+      // You can send this data to backend here
+    });
+  </script>
+</body>
+</html>
